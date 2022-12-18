@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="Author" content="ANONYMOUS GROUP 110">
+        <meta name="Keywords" content="BOOKRECS,books" >
+        <!-- links -->
+        <title>BOOKRECS</title>
+        <link rel="stylesheet" type="text/css" href="stylesheet.css">
+        
+        <!--   <link rel="icon" href="images/icon.png" > -->
+        <!-- fonts  -->
+       <link rel="preconnect" href="https://fonts.googleapis.com"> 
+       <link rel="preconncet" href="https://fonts.gstatic.com" crossorigin> 
+       <link href="https://fonts.googleapi.com/css2?family=Dongle:wght@700&display=swap" rel="stylesheet">
+        
+    </head>
+    
+    <body>
+        <!-- navigation -->
+        <div class="don" >
+        <nav style="margin-right : 1000px;" >
+            <!--   <img src="/home/hemanth/Downloads/book1.jpg" alt="Logo" class="center" height="70%" width="50%" style="margin-left:4px;border-bottom-right-radius:10%;border-bottom-left-radius:10%;"> -->
+            <a style="font-size:60px; position : relative ; bottom : 30%;margin-right : 200px; ">BookRecs </a>
+            <a href="#Welcome_page" class="nav_items">Home|</a>
+            <a href="#from_user" class="nav_items">Login|</a>
+            <a href="#login_user" class="nav_items">Register</a>
+            <a href="#about" class="nav_items">About Us</a>
+        </nav>
+        <!-- Home -->
+        <marquee behaviour="" direction="right" style="padding-top : 100px;color: blue;" > Hemanth S P | Nithin S | Chinmayee N Holla | Chaithu A </marquee>
+        <br>
+        <div style="padding-top: 10px;" id="WelcomePage">
+            <span style="display:inline-block; widht: 50%" >
+                <img src ="https://thumbs.dreamstime.com/b/library-many-shelves-books-library-many-shelves-books-diminishing-perspective-shallow-dof-159717386.jpg" alt="" style="width=95%; padding-left: 10px; margin-left: 10px;border-radius:10px;" >
+            </span>
+                <span style="display: inline-block; widht: 48%" >
+                    <p style="text-align:center;"
+                    <h2 class="WelcomePage"><b>Welcome to BookRecs</b> </h2>
+                    <h2 class="WelcomePage">Here you can find 1000 of books nearby you!</h2>
+                    <h2 class="WelcomePage">So what are you waiting for ? Get started </h2>
+                    </p>
+                </span>
+        </div>
+        <br><hr>
+        </div>
+        <!-- USER LOGIN -->
+
+
+        <script defer src="./index.js"></script>
+        <div class = "main-user-login" style="background-color: black;">
+            <div class="img-user"style="display: inline-block;width: 40%;">
+                <center>
+                    <img src="https://media.istockphoto.com/id/1134344737/photo/book-swap.jpg?s=170667a&w=0&k=20&c=U_wjEYHu4N_LjQj1TagqWWeCnrh2JvO8bBxyBYQjlS8=" alt="" style="border-radius:10px;" >
+                </center>
+            </div>
+            <div class="login-user" id="login-user" style="display : inline-block;width: 50%;">
+                <center >
+                    <h2>Login Form</h2>
+                    <form method="post" action="index.php">
+                        <table>
+                            <tr>
+                                <td><label for="email">MAIL</label></td>
+                                <td><input type="email" name="email2" id="email2" placeholder="Enter your email"></td>
+                            </tr>
+                            <tr>
+                                <td><label for="pass2" > PASSWORD</label></td>
+                                <td><input type="password" id="pass2" placeholder="Enter your Password"> </td>
+                            </tr>
+                        </table>
+                        <br>
+                        <button onclick="submit">Register</button>
+                    </form>
+                    <!-- Additonal -->
+                    <center>
+                    <?php 
+                                $servername = "localhost";
+                                $username = "root";
+                                $password = "";
+                                $dbname = "anonymous";
+
+                                $con = mysqli_connect($servername, $username, $passowrd, $dbname);
+                                if($con){
+
+                                }
+                                else{
+
+                                }
+                                if(!empty($_POST)){
+                                $email = $_POST['email2'];
+                                $pass = $_POST['pass2'];
+                                $query2 = "select userpass from user where usermail = '$email';";
+                                $result2 = $con->query(query2);
+                                while($row = $result2 ->fetch_assoc()){
+                                if($row['userpass']==$pass){
+                                echo "LOGIN SUCCESSFUL";
+                                header("Location: books-search.php");
+                                break;
+                                }
+                                }
+                                }
+                    ?>
+                </center>
+                 
+                <center>
+                    <p id="err1" style="text-align: center;"></p>
+                </center>
+            </div>
+        </div>
+
+        <!-- USER REGISTRATION -->
+        <div class = "main-user-form" >
+            <div class="img-user" style="display: inline-block; width: 40%;">
+                <center>
+                    <img src="data:image/jpeg;base64,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" alt="" style="border-radius: 10px;">
+                </center>
+            </div>
+            <div class="from-user" id="from-user" style="display: inline-block; width: 50%;">
+                <center>
+                    <h2> User Registration </h2>
+                    <form method="post" action="index.php">
+                        <table>
+                            <tr>
+                                <td><label for="name1" >NAME</label></td>
+                                <td><input type="text" name="name1" id="name1" placeholder="Enter Your Name"></td>
+                            </tr>
+                            <tr>
+                                <td><label for="age">AGE</label></td>
+                                <td><input type="number" name="age1" id="age1" placeholder="Enter Your Age"></td>
+                            </tr>
+                            <tr>
+                                <td><label for="gender1">GENDER</label></td>
+                                <td>
+                                    <input type="radio" name="gender1" value="m">MALE 
+
+                                    <input type="radio" name="gender1" value="f" >FEMALE
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><label for="age">NUMBER</label></td>
+                                <td><input type="number" name="num1" id="num1" placeholder="Enter Your Number"></td>
+                            </tr>
+                            <tr>
+                                <td><label for="email">MAIL</label></td>
+                                <td><input type="email" name="email1" id="email1" placeholder="Enter Your Email"></td>
+                            </tr>
+                            <tr>
+                                <td><label for="pass2">PASSWORD</label></td>
+                                <td><input type="password" name="pass1" id="pass1" placeholder="Enter Your Password"></td>
+                            </tr>
+                        </table>
+                        <br>
+                        <button onclick="submit">Register</button>
+                    </form>
+
+
+
+
+                    <? php 
+                                $servername = "localhost";
+                                $username = "root";
+                                $password = "";
+                                $dbname = "anonymous";
+
+                                $con = mysqli_connect($servername,$username,$password,$dbname);
+                                if($con){
+                                
+                                }
+                                else{
+                                
+                                }
+                                if(!empt($_POST)){
+                                $name = $_POST['name1'];
+                                $age = $_POST['age1'];
+                                $number = $_POST['num1'];
+                                $gender = $_POST['gender1'];
+                                $email = $_POST['email1'];
+                                $pass = $_POST['pass1'];
+                                if($name!=""){
+                                $query1 = "INSERT INTO `users`(`username`,`userage`,`userpho`,`usergender`,`useremail`,`userpass`) VALUES (`$name`,`$age`,`$number`,`$gender`,`$email`,`$pass`);";
+                                }
+                                }
+                                
+                               ?> 
+
+                </center>
+
+                <center>
+                    <p = id="err1" style="text-align: center" ></p>
+
+                </center>
+            </div>
+            </div>
+            <br>
+            <hr>
+            <br>
+
+            <!--
+            <div class="main-seller-form">
+                <div class="seller-img" style="display: initial"
+            -->
+                    <div class="about">
+                        <h2>About Us</h2>
+
+                        <section>
+                            <p>Our goal is to help readers to resume their learning journey by recomending them books related to their previous read and topics of interest. </p>
+                            <center>
+                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQXK-mwNHluyn27xU0N4NrLQw1cSyVq5D8HGw&usqp=CAU" alt="Logo" width="50%" height="70%" > 
+                            </center> 
+                                <article> 
+                                    <p style="font-size: 1em;">BookRecs helps you get recomendations on books / novels / reading materials you have previously read. Based on your favourite authors, readin styles, go-to genres, similar topics. We generate couple books for you that you can put it on your <u><b>"To Be Read"</b></u>. Built by HTML,CSS,PHP and MYSQL and a huge diligent details. What are you waiting for? Start searching for your most favourite book!. </p>
+                                </article>
+                        </section>
+                    </div>
+
+                    <!-- Footer -->
+
+                    <footer>
+                        <center>
+                            <img src="https://s3-eu-central-1.amazonaws.com/eurosender-blog/wp-content/uploads/2019/12/02113004/Anonymous-user.jpg" alt="logo" width="50%" height="70%" class="footer-image" >
+                        </center>
+                            <center style="color: white;" > ANONYMOUS </center>
+                            <center> 
+                                <a href=""><img src="https://e7.pngegg.com/pngimages/792/947/png-clipart-instagram-logo-social-media-instagram-login-facebook-advertising-instagram-text-logo.png" alt="" width="32px" height="32px" ></a>
+                                <a href=""><img src="https://seeklogo.com/images/F/facebook-icon-circle-logo-09F32F61FF-seeklogo.com.png" alt="" width="32px" height="32px"></a>
+                                <a href=""><img src="https://static.vecteezy.com/system/resources/previews/002/534/045/original/social-media-twitter-logo-blue-isolated-free-vector.jpg" alt="" width="32px" height="32px"></a>
+                            </center>
+                            <br>
+                            <center style="color: white; font-family: Arial, Helvetica, Sans-serif; font-size: 1.5rem;">&copy ANONYMOUS &nbsp4 </center>
+                    </footer>
+
+
+    </body>
+</html>
